@@ -1,5 +1,37 @@
 @import-normalize; /* bring in normalize.css styles */
 
+:root {
+  /* =================== size const =================== */
+
+  /* =================== /size const =================== */
+
+  /* =================== color const =================== */
+
+  --light-color: #4056b4;
+  --light-background-color: #ffffff;
+  --light-focus-color: #ff6b0a;
+  --light-box-shadow-color: 0px 1px 3px 0px rgba(64, 86, 180, 0.2),
+    0px 1px 1px 0px rgba(64, 86, 180, 0.14),
+    0px 2px 1px -1px rgba(64, 86, 180, 0.12);
+  --dark-color: #f4f4fd;
+  --dark-background-color: #2e2f42;
+  --dark-focus-color: #f4f4fd;
+  --dark-box-shadow-color: 0px 1px 3px 0px rgba(244, 244, 253, 0.2),
+    0px 1px 1px 0px rgba(244, 244, 253, 0.14),
+    0px 2px 1px -1px rgba(244, 244, 253, 0.12);
+  --current-box-shadow-color: var(--light-box-shadow-color);
+
+  --modal-background-color: #2e2f42;
+  /* =================== /color const =================== */
+
+  /* =================== other const =================== */
+  /* --animation-hover-focus: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  --mobile-width: 428px;
+  --tablet-width: 768px;
+  --desktop-width: 1200px; */
+  /* =================== /other const =================== */
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -7,9 +39,67 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: var(--light-color);
+  background-color: var(--light-background-color);
+
+  /* box-shadow: 0px 1px 3px 0px rgba(64, 86, 180, 0.2),
+    0px 1px 1px 0px rgba(64, 86, 180, 0.14),
+    0px 2px 1px -1px rgba(64, 86, 180, 0.12); */
+}
+
+body.dark {
+  color: var(--dark-color);
+  background-color: var(--dark-background-color);
+  stroke: currentColor;
+  /* box-shadow: 0px 1px 3px 0px rgba(64, 86, 180, 0.2),
+    0px 1px 1px 0px rgba(64, 86, 180, 0.14),
+    0px 2px 1px -1px rgba(64, 86, 180, 0.12); */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.link {
+  text-decoration: none;
+
+  color: currentColor;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+  padding: 0;
+  object-fit: cover;
+  object-position: center;
 }

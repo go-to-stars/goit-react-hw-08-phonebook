@@ -17,3 +17,7 @@ export const selectVisibleContact = createSelector(
     );
   }
 );
+
+export const selectEditContact = state => state.contacts.editContact;
+
+export const selectEditModal = state => state.contacts.showModal;

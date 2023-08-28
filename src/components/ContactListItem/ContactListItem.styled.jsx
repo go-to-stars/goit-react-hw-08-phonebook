@@ -1,7 +1,5 @@
 import styled from '@emotion/styled';
 
-
-
 export const Text = styled.p`
   width: 350px;
   height: 28px;
@@ -31,12 +29,16 @@ export const Button = styled.button`
 
   font-size: 18px;
   text-transform: capitalize;
-  background-color: transparent;
-  border-radius: 10px;
 
-  &:hover {
-    background-color: #5995f4;
-    border-color: #5995f4;
+  border: 1px solid currentColor;
+  border-radius: 10px;
+  color: inherit;
+  background-color: inherit;
+  
+  &:hover,
+  &:focus {
+    background-color: #ff6b0a;
+    border-color: #ff6b0a;
     color: #fff;
   }
 
@@ -56,4 +58,3 @@ export const Button = styled.button`
     border-radius: 5px;
   }
 `;
-

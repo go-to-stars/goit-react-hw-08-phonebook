@@ -1,9 +1,8 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Notiflix from 'notiflix';
-import { nanoid } from 'nanoid';
-import { selectContacts } from 'redux/selectors';
-import { addContact } from 'redux/operations';
+import { selectContacts } from '../../redux/contacts/contactsSelectors';
+import { addContact } from '../../redux/contacts/contactsOperations';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import {
@@ -39,13 +38,15 @@ const INITIAL_STATE = {
 
 export const ContactForm = () => {
   const contacts = useSelector(selectContacts); // виклик хука useSelector дозволяє витягувати дані зі стану сховища Redux за допомогою функції селектора selectContacts
+  
   const dispatch = useDispatch(); //виклик хука useDispatch повертає посилання на dispatch функцію зі сховища Redux, для відправки action за потреби
   const addNewContact = e => {
+    const { name, number } = e;
     if (
       contacts.find(
         item =>
           item.name.toLowerCase().replaceAll(' ', '') ===
-          e.name.toLowerCase().replaceAll(' ', '')
+          name.toLowerCase().replaceAll(' ', '')
       ) // при порівнянні приводимо до нижнього регістру та видаляємо пробіли, для унеможливлення реєстрації однакових імен з додатковими пробілами
     ) {
       return Notiflix.Notify.warning(`Name ${e.name} is already in contacts`); // якщо в списку контактів існує контакт з таким ім'ям, вийти та вивести відповідне повідомлення
@@ -58,7 +59,7 @@ export const ContactForm = () => {
             .replaceAll('(', '')
             .replaceAll(')', '')
             .replaceAll('-', '') ===
-          e.number
+          number
             .replaceAll('+', '')
             .replaceAll(' ', '')
             .replaceAll('(', '')
@@ -66,14 +67,14 @@ export const ContactForm = () => {
             .replaceAll('-', '')
       ) // при порівнянні видаляємо плюс, пробіли, дужки та тире, якщо вони є, для унеможливлення реєстрації однакових номерів з додатковими символами
     ) {
-      return Notiflix.Notify.warning(`Number ${e.name} is already in contacts`); // якщо в списку контактів існує контакт з таким номером телефону, вийти та вивести відповідне повідомлення
+      return Notiflix.Notify.warning(`Number ${name} is already in contacts`); // якщо в списку контактів існує контакт з таким номером телефону, вийти та вивести відповідне повідомлення
     }
 
-    dispatch(addContact({ id: nanoid(), name: e.name, number: e.number })); // інакше, додати цей новий контакт до сховища stor
+    dispatch(addContact({ name, number })); // інакше, додати цей новий контакт до сховища stor
 
     e.name = ''; // очищення поля name форми
     e.number = ''; // очищення поля number форми
-  }; // функція addContact додає новий контакт в сховище stor, що містить дерево стану нашого застосунку
+  }; // функція addContact виконує запит на додавання нового контакту на сервер
 
   return (
     <Formik

@@ -29,18 +29,19 @@ export const Input = styled.input`
   padding-left: 12px;
 
   font-size: 18px;
-  border: 1px solid black;
+  border: 1px solid currentColor;
   border-radius: 10px;
+  color: inherit;
+  background-color: inherit;
 
   &:hover {
-    background-color: #5995f4;
-    border-color: #5995f4;
+    background-color: var(--light-focus-color);    
     color: #fff;
   }
 
-  &:focus {
-    background-color: transparent;
-    border-color: #5995f4 !important;
+  &:focus {   
+    background-color: var(--light-focus-color);
+    border-color: var(--light-focus-color);
     color: #000;
   }
 

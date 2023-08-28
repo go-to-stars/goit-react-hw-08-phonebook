@@ -1,6 +1,25 @@
 import styled from '@emotion/styled';
 import { Form, Field, ErrorMessage } from 'formik';
 
+export const Title = styled.h1`
+  padding: 12px 0;
+
+  font-size: 24px;
+  text-align: center;
+
+  @media (max-width: 1023.98px) {
+    padding: 10px 0;
+
+    font-size: 20px;
+  }
+
+  @media (max-width: 767.98px) {
+    padding: 8px 0;
+
+    font-size: 16px;
+  }
+`;
+
 export const FormContainer = styled(Form)`
   display: flex;
   flex-direction: column;
@@ -9,7 +28,8 @@ export const FormContainer = styled(Form)`
   gap: 12px;
   width: 420px;
   padding: 8px;
-  border: 1px solid currentColor;
+
+  border: 2px solid currentColor;
   border-radius: 10px;
 
   @media (max-width: 1023.98px) {
@@ -108,17 +128,17 @@ export const Error = styled(ErrorMessage)`
   }
 `;
 
-export const Button = styled.button`  
+export const Button = styled.button`
   height: 28px;
 
   font-size: 18px;
-  text-transform: capitalize;  
+  text-transform: capitalize; 
 
   border: 1px solid currentColor;
   border-radius: 10px;
   color: inherit;
   background-color: inherit;
-
+  
   &:hover,
   &:focus {
     background-color: #ff6b0a;
@@ -140,5 +160,21 @@ export const Button = styled.button`
     font-size: 10px;
 
     border-radius: 5px;
+  }
+`;
+
+export const ErrorText = styled.div`
+  margin: 0;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 14px;
+  color: red;
+
+  @media (max-width: 1023.98px) {
+    font-size: 12px;
+  }
+
+  @media (max-width: 767.98px) {
+    font-size: 10px;
   }
 `;

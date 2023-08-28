@@ -5,15 +5,18 @@ export const List = styled.ul`
   flex-direction: column;
   align-items: center;
   padding-left: 0;
+  margin-top: 16px;
   gap: 12px;
 
   list-style: inside;
 
   @media (max-width: 1023.98px) {
+    margin-top: 12px;
     gap: 10px;
   }
 
   @media (max-width: 767.98px) {
+    margin-top: 8px;
     gap: 4px;
   }
 `;
